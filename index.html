@@ -107,7 +107,7 @@
             margin-top: 20px;
             position: relative;
             width: 100%;
-            max-width: 500px; /* কার্ডের সর্বোচ্চ প্রস্থ */
+            max-width: 500px;
             margin-left: auto;
             margin-right: auto;
             border: 2px solid #003087;
@@ -118,51 +118,76 @@
         }
         #card-canvas {
             max-width: 100%;
-            height: auto; /* কার্ডের উচ্চতা স্বয়ংক্রিয়ভাবে সামঞ্জস্য */
+            height: auto;
             border-radius: 10px;
         }
         .card-text {
             position: absolute;
             color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
+            line-height: 1.2;
         }
         #name-bn-text {
-            top: 100px;
-            left: 185px;
-            font-size: 25px;
+            top: 80px;
+            left: 150px;
+            font-size: 20px;
             font-weight: bold;
             width: 400px;
         }
+        #name-bn-text span.label {
+            font-family: 'Kalpurush', Arial, sans-serif;
+            font-weight: bold;
+        }
         #name-en-text {
-            top: 150px;
-            left: 185px;
-            font-size: 21px;
-            width: 400px;
-        }
-        #father-text {
-            top: 240px;
-            left: 185px;
-            font-size: 21px;
-            width: 400px;
-        }
-        #mother-text {
-            top: 260px;
-            left: 185px;
+            top: 110px;
+            left: 150px;
             font-size: 18px;
             width: 400px;
         }
-        #nid-text {
-            top: 280px;
-            left: 210px;
-            font-size: 30px;
+        #name-en-text span.label {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        #father-text {
+            top: 140px;
+            left: 150px;
+            font-size: 18px;
             width: 400px;
         }
-        #dob-text {
-            top: 300px;
-            left: 250px;
-            font-size: 30px;
-            font-weight: bold;
+        #father-text span.label {
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
+        #mother-text {
+            top: 170px;
+            left: 150px;
+            font-size: 18px;
             width: 400px;
+        }
+        #mother-text span.label {
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
+        #dob-text {
+            top: 200px;
+            left: 150px;
+            font-size: 18px;
+            width: 400px;
+        }
+        #dob-text span.label {
+            font-family: 'Kalpurush', Arial, sans-serif;
+            font-weight: bold;
+            color: #FF0000;
+        }
+        #nid-text {
+            top: 230px;
+            left: 150px;
+            font-size: 18px;
+            width: 400px;
+        }
+        #nid-text span.label {
+            font-family: 'Kalpurush', Arial, sans-serif;
+            font-weight: bold;
+            color: #FF0000;
         }
         footer {
             margin-top: 20px;
@@ -211,7 +236,7 @@
             }
             #card-preview {
                 padding: 5px;
-                max-width: 100%; /* মোবাইলে ফুল উইডথ */
+                max-width: 100%;
             }
             .card-text {
                 left: 50%;
@@ -286,8 +311,8 @@
                 <div id="name-en-text" class="card-text"></div>
                 <div id="father-text" class="card-text"></div>
                 <div id="mother-text" class="card-text"></div>
-                <div id="nid-text" class="card-text"></div>
                 <div id="dob-text" class="card-text"></div>
+                <div id="nid-text" class="card-text"></div>
             </div>
             <img id="card-canvas" src="https://raw.githubusercontent.com/shakib0122222/gorib/6a43568d84d1a92c93b5a2087fc838ec6a7181b0/20251002_000903.jpg" alt="Card Preview" crossorigin="anonymous">
         </div>
@@ -306,8 +331,8 @@
         const nameEnText = document.getElementById('name-en-text');
         const fatherText = document.getElementById('father-text');
         const motherText = document.getElementById('mother-text');
-        const nidText = document.getElementById('nid-text');
         const dobText = document.getElementById('dob-text');
+        const nidText = document.getElementById('nid-text');
         const headerBox = document.querySelector('.header-box');
 
         // Random color generator for header box
@@ -339,13 +364,13 @@
             const dob = document.getElementById('dob').value;
             const nidNo = generateRandomNID();
 
-            // Update text on the card
-            nameBnText.textContent = nameBn;
-            nameEnText.textContent = nameEn;
-            fatherText.textContent = fatherName;
-            motherText.textContent = motherName;
-            nidText.textContent = nidNo;
-            dobText.textContent = dob;
+            // Update text on the card with labels
+            nameBnText.innerHTML = `নাম: ${nameBn}`;
+            nameEnText.innerHTML = `Name: ${nameEn}`;
+            fatherText.innerHTML = `পিতার নাম: ${fatherName}`;
+            motherText.innerHTML = `মাতার নাম: ${motherName}`;
+            dobText.innerHTML = `জন্মতারিখ: ${dob}`;
+            nidText.innerHTML = `Nid No.: ${nidNo}`;
 
             // Show the card preview
             cardPreview.style.display = 'block';
