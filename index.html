@@ -99,7 +99,7 @@
       height: auto;
       border-radius: 10px;
     }
-    /* ---- টেক্সট পজিশন (ছবির ভেতরের লেবেলের পরেই বসবে) ---- */
+    /* ---- কার্ড টেক্সট ঠিক জায়গায় বসানো ---- */
     .card-text {
       position: absolute;
       color: #000;
@@ -107,39 +107,38 @@
       white-space: nowrap;
     }
     #name-bn-text {
-      top: 95px; left: 300px;
+      top: 95px; left: 150px;
       font-size: 16px;
       font-weight: bold;
     }
     #name-en-text {
-      top: 120px; left: 300px;
+      top: 120px; left: 150px;
       font-size: 15px;
       font-family: Arial;
     }
     #father-text {
-      top: 145px; left: 300px;
+      top: 145px; left: 150px;
       font-size: 15px;
     }
     #mother-text {
-      top: 170px; left: 300px;
+      top: 170px; left: 150px;
       font-size: 15px;
     }
     #dob-text {
-      top: 195px; left: 360px;
-      font-size: 15px;
-      font-weight: bold;
-      color: #000;
-    }
-    #id-text {
-      top: 220px; left: 320px;
+      top: 195px; left: 220px;
       font-size: 16px;
       font-weight: bold;
-      color: #000;
+      color: red;
     }
-    /* ✅ সিগনেচার আলাদা করে ছবির নিচে বসানো হলো */
+    #id-text {
+      top: 220px; left: 180px;
+      font-size: 17px;
+      font-weight: bold;
+      color: red;
+    }
+    /* ✅ সিগনেচার ছবির নিচে */
     #signature-text {
-      top: 280px; 
-      left: 120px;   /* ছবির নিচে ডানদিকে হবে */
+      top: 250px; left: 60px;
       font-size: 14px;
       font-family: "Brush Script MT", cursive;
       font-weight: bold;
@@ -210,9 +209,6 @@
   <script>
     const form = document.getElementById('card-form');
     const cardPreview = document.getElementById('card-preview');
-    const cardCanvas = document.getElementById('card-canvas');
-    const downloadBtn = document.getElementById('download-btn');
-    const textContainer = document.getElementById('card-text-container');
     const nameBnText = document.getElementById('name-bn-text');
     const nameEnText = document.getElementById('name-en-text');
     const fatherText = document.getElementById('father-text');
