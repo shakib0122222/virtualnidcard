@@ -107,7 +107,7 @@
             margin-top: 20px;
             position: relative;
             width: 100%;
-            max-width: 100%;
+            max-width: 500px; /* কার্ডের সর্বোচ্চ প্রস্থ */
             margin-left: auto;
             margin-right: auto;
             border: 2px solid #003087;
@@ -118,6 +118,7 @@
         }
         #card-canvas {
             max-width: 100%;
+            height: auto; /* কার্ডের উচ্চতা স্বয়ংক্রিয়ভাবে সামঞ্জস্য */
             border-radius: 10px;
         }
         .card-text {
@@ -126,39 +127,39 @@
             font-family: 'Kalpurush', Arial, sans-serif;
         }
         #name-bn-text {
-            top: 20px;
-            left: 230px;
+            top: 80px;
+            left: 150px;
             font-size: 20px;
             font-weight: bold;
             width: 400px;
         }
         #name-en-text {
-            top: 40px;
-            left: 230px;
-            font-size: 20px;
+            top: 110px;
+            left: 150px;
+            font-size: 18px;
             width: 400px;
         }
         #father-text {
-            top: 100px;
-            left: 200px;
+            top: 140px;
+            left: 150px;
             font-size: 18px;
             width: 400px;
         }
         #mother-text {
-            top: 180px;
+            top: 170px;
             left: 150px;
             font-size: 18px;
             width: 400px;
         }
         #nid-text {
-            top: 200px;
-            left: 230px;
+            top: 230px;
+            left: 150px;
             font-size: 18px;
             width: 400px;
         }
         #dob-text {
-            top: 220px;
-            left: 240px;
+            top: 200px;
+            left: 150px;
             font-size: 18px;
             font-weight: bold;
             width: 400px;
@@ -210,6 +211,7 @@
             }
             #card-preview {
                 padding: 5px;
+                max-width: 100%; /* মোবাইলে ফুল উইডথ */
             }
             .card-text {
                 left: 50%;
@@ -378,4 +380,4 @@
         }
     </script>
 </body>
-                        </html>
+</html>
