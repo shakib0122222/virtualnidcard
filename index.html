@@ -1,235 +1,128 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ভার্চুয়াল কার্ড জেনারেটর</title>
-  <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+  <title>NID Generator</title>
   <style>
     body {
-      font-family: 'Kalpurush', Arial, sans-serif;
-      background: linear-gradient(135deg, #e6f0ff, #f0f4f8);
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      overflow: auto;
-    }
-    .container {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-      width: 90%;
-      max-width: 500px;
+      font-family: Arial, sans-serif;
       text-align: center;
-    }
-    .header-box {
-      background: linear-gradient(135deg, #003087, #005bb5);
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      color: #ffffff;
-      font-size: 28px;
       margin: 0;
+      padding: 0;
+      background: #f0f2f5;
     }
-    .note {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .form-box {
-      background: linear-gradient(135deg, #e6f0ff, #ffffff);
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-    .form-group {
-      margin-bottom: 15px;
-      text-align: left;
-    }
-    label {
-      font-size: 16px;
-      color: #003087;
-      display: block;
-      margin-bottom: 5px;
-    }
-    input {
-      width: 100%;
+    .card {
+      width: 500px;
+      height: 300px;
+      border: 2px solid #000;
+      margin: 20px auto;
       padding: 10px;
-      border: 2px solid #003087;
-      border-radius: 8px;
-      background-color: #f0f4f8;
-      color: #333;
-      font-size: 16px;
-    }
-    button {
-      background: linear-gradient(135deg, #003087, #005bb5);
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-      margin-top: 10px;
-    }
-    button:hover {
-      background: linear-gradient(135deg, #005bb5, #003087);
-    }
-    #card-preview {
-      display: none;
-      margin-top: 20px;
       position: relative;
-      width: 100%;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-      border: 2px solid #003087;
-      border-radius: 10px;
-      padding: 5px;
-      background-color: #f0f4f8;
+      background: #fff;
     }
-    #card-canvas {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-    /* ---- কার্ড টেক্সট সঠিকভাবে বসানো ---- */
-    .card-text {
+    .card img.photo {
       position: absolute;
-      color: #000;
-      font-family: 'Kalpurush', Arial, sans-serif;
-      white-space: nowrap;
+      top: 70px;
+      left: 20px;
+      width: 80px;
+      height: 90px;
+      border: 1px solid #000;
     }
-    #name-bn-text { top: 95px; left: 150px; font-size: 16px; font-weight: bold; }
-    #name-en-text { top: 118px; left: 150px; font-size: 15px; font-family: Arial; }
-    #father-text  { top: 142px; left: 150px; font-size: 15px; }
-    #mother-text  { top: 165px; left: 150px; font-size: 15px; }
-    #dob-text     { top: 190px; left: 150px; font-size: 16px; font-weight: bold; color: red; }
-    #id-text      { top: 215px; left: 150px; font-size: 18px; font-weight: bold; color: red; }
-    #signature-text {
-      top: 250px; left: 70px;
-      font-size: 14px;
+    .card .signature {
+      position: absolute;
+      top: 170px; /* ছবির নিচে */
+      left: 20px;
       font-family: "Brush Script MT", cursive;
+      font-size: 16px;
+    }
+    .field {
+      position: absolute;
+      font-size: 14px;
+    }
+    #outputNameBangla {
+      top: 70px;
+      left: 120px;
       font-weight: bold;
     }
-    footer {
-      margin-top: 20px;
-      font-size: 14px;
-      color: #555;
+    #outputNameEnglish {
+      top: 90px;
+      left: 120px;
+      font-weight: bold;
     }
-    #download-btn {
-      display: none;
-      background: linear-gradient(135deg, #28a745, #218838);
+    #outputFather {
+      top: 110px;
+      left: 120px;
+    }
+    #outputMother {
+      top: 130px;
+      left: 120px;
+    }
+    #outputDob {
+      top: 150px;
+      left: 120px;
+      color: red;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    #outputNid {
+      top: 180px;
+      left: 120px;
+      color: red;
+      font-size: 18px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header-box">
-      <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
-    </div>
-    <p class="note">This card is for preview purposes only</p>
-    <div class="form-box">
-      <form id="card-form">
-        <div class="form-group">
-          <label for="name-bn">নাম (বাংলা)</label>
-          <input type="text" id="name-bn" required>
-        </div>
-        <div class="form-group">
-          <label for="name-en">Name (English)</label>
-          <input type="text" id="name-en" required>
-        </div>
-        <div class="form-group">
-          <label for="father-name">পিতার নাম</label>
-          <input type="text" id="father-name" required>
-        </div>
-        <div class="form-group">
-          <label for="mother-name">মাতার নাম</label>
-          <input type="text" id="mother-name" required>
-        </div>
-        <div class="form-group">
-          <label for="dob">জন্মতারিখ</label>
-          <input type="date" id="dob" required>
-        </div>
-        <div class="form-group">
-          <label for="signature">সিগনেচার</label>
-          <input type="text" id="signature" required>
-        </div>
-        <button type="submit">ক্রিয়েট কার্ড</button>
-      </form>
-    </div>
-    <div id="card-preview">
-      <div id="card-text-container">
-        <div id="name-bn-text" class="card-text"></div>
-        <div id="name-en-text" class="card-text"></div>
-        <div id="father-text" class="card-text"></div>
-        <div id="mother-text" class="card-text"></div>
-        <div id="dob-text" class="card-text"></div>
-        <div id="id-text" class="card-text"></div>
-        <div id="signature-text" class="card-text"></div>
-      </div>
-      <img id="card-canvas" src="https://raw.githubusercontent.com/shakib0122222/gorib/6a43568d84d1a92c93b5a2087fc838ec6a7181b0/20251002_000903.jpg" alt="Card Preview" crossorigin="anonymous">
-    </div>
-    <button id="download-btn">ডাউনলোড কার্ড</button>
-    <footer>@Developed By SAKIB HOSSAIN</footer>
+  <h2>জাতীয় পরিচয়পত্র তৈরি করুন</h2>
+  <form onsubmit="generateCard(); return false;">
+    <label>নাম (বাংলা):</label><br>
+    <input type="text" id="nameBangla"><br><br>
+
+    <label>Name (English):</label><br>
+    <input type="text" id="nameEnglish"><br><br>
+
+    <label>পিতার নাম:</label><br>
+    <input type="text" id="father"><br><br>
+
+    <label>মাতার নাম:</label><br>
+    <input type="text" id="mother"><br><br>
+
+    <label>জন্মতারিখ:</label><br>
+    <input type="date" id="dob"><br><br>
+
+    <label>Signature:</label><br>
+    <input type="text" id="signature"><br><br>
+
+    <button type="submit">ক্রিয়েট কার্ড</button>
+  </form>
+
+  <div class="card" id="nidCard">
+    <img src="https://i.ibb.co/7zvYj3g/photo.jpg" alt="Photo" class="photo">
+    <div class="signature" id="outputSignature"></div>
+    <div class="field" id="outputNameBangla"></div>
+    <div class="field" id="outputNameEnglish"></div>
+    <div class="field" id="outputFather"></div>
+    <div class="field" id="outputMother"></div>
+    <div class="field" id="outputDob"></div>
+    <div class="field" id="outputNid"></div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
-    const form = document.getElementById('card-form');
-    const cardPreview = document.getElementById('card-preview');
-    const downloadBtn = document.getElementById('download-btn');
+    function generateCard() {
+      document.getElementById("outputNameBangla").innerText = document.getElementById("nameBangla").value;
+      document.getElementById("outputNameEnglish").innerText = document.getElementById("nameEnglish").value;
+      document.getElementById("outputFather").innerText = document.getElementById("father").value;
+      document.getElementById("outputMother").innerText = document.getElementById("mother").value;
+      document.getElementById("outputDob").innerText = document.getElementById("dob").value;
+      document.getElementById("outputSignature").innerText = document.getElementById("signature").value;
 
-    const nameBnText = document.getElementById('name-bn-text');
-    const nameEnText = document.getElementById('name-en-text');
-    const fatherText = document.getElementById('father-text');
-    const motherText = document.getElementById('mother-text');
-    const dobText = document.getElementById('dob-text');
-    const idText = document.getElementById('id-text');
-    const signatureText = document.getElementById('signature-text');
-
-    function generateRandomID() {
-      return Math.floor(100000000 + Math.random() * 900000000).toString();
+      // র‍্যান্ডম NID জেনারেট
+      let randomNid = Math.floor(Math.random() * 10000000000);
+      document.getElementById("outputNid").innerText = randomNid;
     }
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nameBn = document.getElementById('name-bn').value;
-      let nameEn = document.getElementById('name-en').value;
-      const fatherName = document.getElementById('father-name').value;
-      const motherName = document.getElementById('mother-name').value;
-      const dob = document.getElementById('dob').value;
-      const signature = document.getElementById('signature').value;
-      const idNo = generateRandomID();
-
-      nameEn = nameEn.toUpperCase();
-
-      nameBnText.textContent = nameBn;
-      nameEnText.textContent = nameEn;
-      fatherText.textContent = fatherName;
-      motherText.textContent = motherName;
-      dobText.textContent = dob;
-      idText.textContent = idNo;
-      signatureText.textContent = signature;
-
-      cardPreview.style.display = 'block';
-      downloadBtn.style.display = 'block';
-    });
-
-    downloadBtn.addEventListener('click', () => {
-      html2canvas(document.querySelector("#card-preview")).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "virtual_card.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
-      });
-    });
   </script>
 </body>
 </html>
