@@ -19,11 +19,11 @@
         }
         .container {
             background-color: #ffffff;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
             width: 90%;
-            max-width: 700px;
+            max-width: 500px;
             text-align: center;
             transition: transform 0.3s ease;
         }
@@ -32,18 +32,18 @@
         }
         h1 {
             color: #003087;
-            font-size: 28px;
+            font-size: 24px;
             margin-bottom: 10px;
         }
         .note {
-            font-size: 14px;
+            font-size: 12px;
             color: #555;
             margin-bottom: 20px;
             font-family: 'Kalpurush', Arial, sans-serif;
         }
         .form-box {
             background: linear-gradient(135deg, #e6f0ff, #ffffff);
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 91, 181, 0.1);
             margin-bottom: 20px;
@@ -53,23 +53,23 @@
             box-shadow: 0 6px 20px rgba(0, 91, 181, 0.2);
         }
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             text-align: left;
         }
         label {
-            font-size: 16px;
+            font-size: 14px;
             color: #003087;
             display: block;
             margin-bottom: 5px;
         }
         input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 2px solid #003087;
             border-radius: 8px;
             background-color: #f0f4f8;
             color: #333;
-            font-size: 16px;
+            font-size: 14px;
             font-family: 'Kalpurush', Arial, sans-serif;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
@@ -81,11 +81,11 @@
         button {
             background: linear-gradient(135deg, #003087, #005bb5);
             color: white;
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             font-family: 'Kalpurush', Arial, sans-serif;
             transition: background 0.3s ease, transform 0.3s ease;
             width: 100%;
@@ -96,16 +96,16 @@
             transform: translateY(-2px);
         }
         #card-preview {
-            display: none; /* প্রথমে প্রিভিউ লুকানো */
+            display: none;
             margin-top: 20px;
             position: relative;
             width: 100%;
-            max-width: 650px;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
             border: 2px solid #003087;
             border-radius: 10px;
-            padding: 10px;
+            padding: 5px;
             background-color: #f0f4f8;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
@@ -118,7 +118,6 @@
             color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
         }
-        /* টেমপ্লেট অনুযায়ী টেক্সট পজিশন ও সাইজ */
         #name-bn-text {
             top: 100px;
             left: 300px;
@@ -145,13 +144,13 @@
             width: 300px;
         }
         #nid-text {
-            top: 225px;
+            top: 200px;
             left: 300px;
             font-size: 16px;
             width: 300px;
         }
         #dob-text {
-            top: 200px;
+            top: 225px;
             left: 300px;
             font-size: 16px;
             font-weight: bold;
@@ -159,7 +158,7 @@
         }
         footer {
             margin-top: 20px;
-            font-size: 14px;
+            font-size: 12px;
             color: #555;
             font-family: 'Kalpurush', Arial, sans-serif;
         }
@@ -173,16 +172,53 @@
         }
         @media (max-width: 600px) {
             .container {
-                padding: 20px;
+                padding: 15px;
+                max-width: 100%;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .note {
+                font-size: 10px;
+            }
+            .form-box {
+                padding: 10px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            label {
+                font-size: 12px;
+            }
+            input {
+                font-size: 12px;
+                padding: 8px;
+            }
+            button {
+                font-size: 12px;
+                padding: 8px 12px;
             }
             #card-preview {
-                max-width: 100%;
+                padding: 5px;
             }
             .card-text {
                 left: 50%;
                 transform: translateX(-50%);
                 width: 90%;
+                font-size: 12px;
             }
+            #name-bn-text {
+                font-size: 14px;
+            }
+            #name-en-text, #father-text, #mother-text, #nid-text, #dob-text {
+                font-size: 12px;
+            }
+            #name-bn-text { top: 60px; }
+            #name-en-text { top: 80px; }
+            #father-text { top: 100px; }
+            #mother-text { top: 120px; }
+            #dob-text { top: 140px; }
+            #nid-text { top: 160px; }
         }
     </style>
 </head>
@@ -209,10 +245,6 @@
                     <input type="text" id="mother-name" placeholder="মাতার নাম লিখুন" required>
                 </div>
                 <div class="form-group">
-                    <label for="nid-no">NID নম্বর</label>
-                    <input type="text" id="nid-no" placeholder="NID নম্বর লিখুন" required>
-                </div>
-                <div class="form-group">
                     <label for="dob">জন্মতারিখ</label>
                     <input type="date" id="dob" required>
                 </div>
@@ -228,7 +260,7 @@
                 <div id="nid-text" class="card-text"></div>
                 <div id="dob-text" class="card-text"></div>
             </div>
-            <img id="card-canvas" src="https://raw.githubusercontent.com/shakib0122222/gorib/6a43568d84d1a92c93b5a2087fc838ec6a7181b0/20251002_000903.jpg" alt="Card Preview">
+            <img id="card-canvas" src="https://raw.githubusercontent.com/shakib0122222/gorib/6a43568d84d1a92c93b5a2087fc838ec6a7181b0/20251002_000903.jpg" alt="Card Preview" crossorigin="anonymous">
         </div>
         <button id="download-btn">ডাউনলোড কার্ড</button>
         <footer>@Developed By SAKIB HOSSAIN</footer>
@@ -240,6 +272,7 @@
         const cardPreview = document.getElementById('card-preview');
         const cardCanvas = document.getElementById('card-canvas');
         const downloadBtn = document.getElementById('download-btn');
+        const textContainer = document.getElementById('card-text-container');
         const nameBnText = document.getElementById('name-bn-text');
         const nameEnText = document.getElementById('name-en-text');
         const fatherText = document.getElementById('father-text');
@@ -247,14 +280,19 @@
         const nidText = document.getElementById('nid-text');
         const dobText = document.getElementById('dob-text');
 
+        // Random 10-digit NID-like number generator
+        function generateRandomNID() {
+            return Math.floor(1000000000 + Math.random() * 9000000000).toString();
+        }
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const nameBn = document.getElementById('name-bn').value;
             const nameEn = document.getElementById('name-en').value;
             const fatherName = document.getElementById('father-name').value;
             const motherName = document.getElementById('mother-name').value;
-            const nidNo = document.getElementById('nid-no').value;
             const dob = document.getElementById('dob').value;
+            const nidNo = generateRandomNID(); // Generate random NID
 
             // Update text on the card
             nameBnText.textContent = nameBn;
@@ -267,12 +305,22 @@
             // Show the card preview
             cardPreview.style.display = 'block';
 
-            // Generate image with html2canvas
+            // Ensure image is loaded before capturing
+            if (cardCanvas.complete) {
+                captureCard();
+            } else {
+                cardCanvas.onload = captureCard;
+            }
+        });
+
+        function captureCard() {
             html2canvas(document.getElementById('card-preview'), {
                 backgroundColor: null,
-                scale: 2
+                scale: 2,
+                useCORS: true
             }).then(canvas => {
                 cardCanvas.src = canvas.toDataURL('image/png');
+                textContainer.style.display = 'none'; // Hide text after capture
                 downloadBtn.style.display = 'block';
                 downloadBtn.onclick = () => {
                     const link = document.createElement('a');
@@ -281,7 +329,7 @@
                     link.click();
                 };
             });
-        });
+        }
     </script>
 </body>
 </html>
