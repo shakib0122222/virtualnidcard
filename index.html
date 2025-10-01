@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ভার্চুয়াল NID কার্ড জেনারেটর</title>
+    <title>ভার্চুয়াল কার্ড জেনারেটর</title>
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
     <style>
         body {
@@ -125,61 +125,54 @@
             position: absolute;
             color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
+            white-space: nowrap; /* Prevents text from wrapping */
         }
-        /* Updated text positions for the red box */
+        /* Updated text positions and sizes */
         #name-bn-text {
-            top: 95px;
-            left: 240px;
+            top: 90px;
+            left: 215px;
             font-size: 18px;
             font-weight: bold;
-            width: 350px;
         }
         #name-en-text {
-            top: 120px;
-            left: 240px;
-            font-size: 15px;
-            font-family: Arial;
-            width: 350px;
+            top: 115px;
+            left: 215px;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
         }
         #father-text {
-            top: 140px;
-            left: 240px;
-            font-size: 15px;
-            width: 350px;
+            top: 135px;
+            left: 215px;
+            font-size: 14px;
         }
         #mother-text {
-            top: 160px;
-            left: 240px;
-            font-size: 15px;
-            width: 350px;
+            top: 155px;
+            left: 215px;
+            font-size: 14px;
         }
         #dob-text {
-            top: 180px;
-            left: 240px;
-            font-size: 15px;
-            width: 350px;
+            top: 175px;
+            left: 215px;
+            font-size: 14px;
         }
         #id-text {
-            top: 215px;
-            left: 240px;
+            top: 205px;
+            left: 215px;
             font-size: 18px;
             font-weight: bold;
             color: red;
-            width: 350px;
         }
-        /* Updated signature position for the blue box */
         #signature-text {
             top: 245px;
-            left: 45px;
-            font-size: 16px;
-            width: 150px;
+            left: 35px;
+            font-size: 18px;
+            width: 140px; /* Width of the blue box */
             text-align: center;
         }
         footer {
             margin-top: 20px;
             font-size: 14px;
             color: #555;
-            font-family: 'Kalpurush', Arial, sans-serif;
         }
         #download-btn {
             display: none;
@@ -187,87 +180,52 @@
         }
         #download-btn:hover {
             background: linear-gradient(135deg, #218838, #28a745);
-            transform: translateY(-2px);
         }
         @media (max-width: 600px) {
             .container {
                 padding: 15px;
-                max-width: 100%;
+                width: 100%;
             }
-            .header-box {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            .note {
-                font-size: 12px;
-            }
-            .form-box {
-                padding: 10px;
-            }
-            .form-group {
-                margin-bottom: 10px;
-            }
-            label {
-                font-size: 14px;
-            }
-            input {
-                font-size: 14px;
-                padding: 8px;
-            }
-            button {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
-            #card-preview {
-                padding: 5px;
-                max-width: 100%;
-            }
-             /* Updated Responsive Styles */
+             /* Responsive positions using percentages */
             .card-text {
                 transform: none;
                 width: auto;
             }
             #name-bn-text {
-                top: 18%;
-                left: 48%;
-                font-size: 14px;
+                top: 25%;
+                left: 43%;
+                font-size: 15px;
             }
             #name-en-text {
-                top: 23%;
-                left: 48%;
-                font-size: 11px;
+                top: 32%;
+                left: 43%;
+                font-size: 12px;
             }
             #father-text {
-                top: 27%;
-                left: 48%;
-                font-size: 11px;
+                top: 37%;
+                left: 43%;
+                font-size: 12px;
             }
             #mother-text {
-                top: 31%;
-                left: 48%;
-                font-size: 11px;
+                top: 42%;
+                left: 43%;
+                font-size: 12px;
             }
             #dob-text {
-                top: 35%;
-                left: 48%;
-                font-size: 11px;
+                top: 47%;
+                left: 43%;
+                font-size: 12px;
             }
             #id-text {
-                top: 42%;
-                left: 48%;
-                font-size: 14px;
+                top: 55%;
+                left: 43%;
+                font-size: 15px;
             }
             #signature-text {
-                top: 48%;
-                left: 9%;
-                width: 30%;
-                font-size: 12px;
-                text-align: center;
-            }
-            footer {
-                font-size: 12px;
+                top: 67%;
+                left: 7%;
+                width: 28%;
+                font-size: 14px;
             }
         }
     </style>
@@ -339,7 +297,6 @@
         const signatureText = document.getElementById('signature-text');
         const headerBox = document.querySelector('.header-box');
 
-        // Random color generator for header box
         function getRandomColor() {
             const colors = [
                 'linear-gradient(135deg, #003087, #005bb5)',
@@ -351,10 +308,8 @@
             return colors[Math.floor(Math.random() * colors.length)];
         }
 
-        // Set random color on load
         headerBox.style.background = getRandomColor();
 
-        // Random 10-digit ID-like number generator
         function generateRandomID() {
             return Math.floor(1000000000 + Math.random() * 9000000000).toString();
         }
@@ -368,26 +323,21 @@
             const dob = document.getElementById('dob').value;
             const idNo = generateRandomID();
             const signature = document.getElementById('signature').value;
-
-            // Convert English name to uppercase
+            
             nameEn = nameEn.toUpperCase();
 
-            // Update text on the card with labels
+            // Updated to add labels as requested
             nameBnText.textContent = `নাম: ${nameBn}`;
             nameEnText.textContent = `Name: ${nameEn}`;
-            fatherText.textContent = `পিতার নাম: ${fatherName}`;
-            motherText.textContent = `মাতার নাম: ${motherName}`;
+            fatherText.textContent = `পিতা: ${fatherName}`;
+            motherText.textContent = `মাতা: ${motherName}`;
             dobText.textContent = `Date of Birth: ${dob}`;
             idText.textContent = `ID NO: ${idNo}`;
-            signatureText.textContent = `${signature}`;
+            signatureText.textContent = signature;
 
-            // Show the card preview
             cardPreview.style.display = 'block';
-
-            // Change header color on each submit
             headerBox.style.background = getRandomColor();
 
-            // Ensure image is loaded before capturing
             if (cardCanvas.complete) {
                 captureCard();
             } else {
@@ -396,22 +346,28 @@
         });
 
         function captureCard() {
-            html2canvas(document.getElementById('card-preview'), {
-                backgroundColor: null,
-                scale: 2,
-                useCORS: true
+            // Temporarily show text for capturing
+            textContainer.style.display = 'block';
+
+            html2canvas(document.querySelector("#card-preview"), {
+                useCORS: true,
+                scale: 3 // Increase scale for better quality
             }).then(canvas => {
-                cardCanvas.src = canvas.toDataURL('image/png');
+                // Hide original text elements
                 textContainer.style.display = 'none';
+                
+                // Set the captured image as the source for the main image display
+                cardCanvas.src = canvas.toDataURL("image/png");
+                
                 downloadBtn.style.display = 'block';
                 downloadBtn.onclick = () => {
                     const link = document.createElement('a');
-                    link.href = cardCanvas.src;
-                    link.download = 'virtual_card.png';
+                    link.download = 'virtual-card.png';
+                    link.href = canvas.toDataURL("image/png");
                     link.click();
                 };
             });
         }
     </script>
 </body>
-                    </html>
+    </html>
