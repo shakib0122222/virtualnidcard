@@ -1,1 +1,287 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভার্চুয়াল কার্ড জেনারেটর</title>
+    <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Kalpurush', Arial, sans-serif;
+            background: linear-gradient(135deg, #e6f0ff, #f0f4f8);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: auto;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+        }
+        h1 {
+            color: #003087;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .note {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
+        .form-box {
+            background: linear-gradient(135deg, #e6f0ff, #ffffff);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 91, 181, 0.1);
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+        .form-box:hover {
+            box-shadow: 0 6px 20px rgba(0, 91, 181, 0.2);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            font-size: 16px;
+            color: #003087;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #003087;
+            border-radius: 8px;
+            background-color: #f0f4f8;
+            color: #333;
+            font-size: 16px;
+            font-family: 'Kalpurush', Arial, sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #005bb5;
+            box-shadow: 0 0 8px rgba(0, 91, 181, 0.3);
+        }
+        button {
+            background: linear-gradient(135deg, #003087, #005bb5);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Kalpurush', Arial, sans-serif;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: linear-gradient(135deg, #005bb5, #003087);
+            transform: translateY(-2px);
+        }
+        #card-preview {
+            display: none; /* প্রথমে প্রিভিউ লুকানো */
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid #003087;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #f0f4f8;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        #card-canvas {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .card-text {
+            position: absolute;
+            color: #000000;
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
+        /* টেমপ্লেট অনুযায়ী টেক্সট পজিশন ও সাইজ */
+        #name-bn-text {
+            top: 100px;
+            left: 300px;
+            font-size: 18px;
+            font-weight: bold;
+            width: 300px;
+        }
+        #name-en-text {
+            top: 125px;
+            left: 300px;
+            font-size: 16px;
+            width: 300px;
+        }
+        #father-text {
+            top: 150px;
+            left: 300px;
+            font-size: 16px;
+            width: 300px;
+        }
+        #mother-text {
+            top: 175px;
+            left: 300px;
+            font-size: 16px;
+            width: 300px;
+        }
+        #nid-text {
+            top: 225px;
+            left: 300px;
+            font-size: 16px;
+            width: 300px;
+        }
+        #dob-text {
+            top: 200px;
+            left: 300px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 300px;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
+        #download-btn {
+            display: none;
+            background: linear-gradient(135deg, #28a745, #218838);
+        }
+        #download-btn:hover {
+            background: linear-gradient(135deg, #218838, #28a745);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            #card-preview {
+                max-width: 100%;
+            }
+            .card-text {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
+        <p class="note">This card is for preview purposes only</p>
+        <div class="form-box">
+            <form id="card-form">
+                <div class="form-group">
+                    <label for="name-bn">নাম (বাংলা)</label>
+                    <input type="text" id="name-bn" placeholder="আপনার নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="name-en">Name (English)</label>
+                    <input type="text" id="name-en" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="father-name">পিতার নাম</label>
+                    <input type="text" id="father-name" placeholder="পিতার নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="mother-name">মাতার নাম</label>
+                    <input type="text" id="mother-name" placeholder="মাতার নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="nid-no">NID নম্বর</label>
+                    <input type="text" id="nid-no" placeholder="NID নম্বর লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">জন্মতারিখ</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <button type="submit">ক্রিয়েট কার্ড</button>
+            </form>
+        </div>
+        <div id="card-preview">
+            <div id="card-text-container">
+                <div id="name-bn-text" class="card-text"></div>
+                <div id="name-en-text" class="card-text"></div>
+                <div id="father-text" class="card-text"></div>
+                <div id="mother-text" class="card-text"></div>
+                <div id="nid-text" class="card-text"></div>
+                <div id="dob-text" class="card-text"></div>
+            </div>
+            <img id="card-canvas" src="https://raw.githubusercontent.com/shakib0122222/gorib/6a43568d84d1a92c93b5a2087fc838ec6a7181b0/20251002_000903.jpg" alt="Card Preview">
+        </div>
+        <button id="download-btn">ডাউনলোড কার্ড</button>
+        <footer>@Developed By SAKIB HOSSAIN</footer>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        const form = document.getElementById('card-form');
+        const cardPreview = document.getElementById('card-preview');
+        const cardCanvas = document.getElementById('card-canvas');
+        const downloadBtn = document.getElementById('download-btn');
+        const nameBnText = document.getElementById('name-bn-text');
+        const nameEnText = document.getElementById('name-en-text');
+        const fatherText = document.getElementById('father-text');
+        const motherText = document.getElementById('mother-text');
+        const nidText = document.getElementById('nid-text');
+        const dobText = document.getElementById('dob-text');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nameBn = document.getElementById('name-bn').value;
+            const nameEn = document.getElementById('name-en').value;
+            const fatherName = document.getElementById('father-name').value;
+            const motherName = document.getElementById('mother-name').value;
+            const nidNo = document.getElementById('nid-no').value;
+            const dob = document.getElementById('dob').value;
+
+            // Update text on the card
+            nameBnText.textContent = nameBn;
+            nameEnText.textContent = nameEn;
+            fatherText.textContent = fatherName;
+            motherText.textContent = motherName;
+            nidText.textContent = nidNo;
+            dobText.textContent = dob;
+
+            // Show the card preview
+            cardPreview.style.display = 'block';
+
+            // Generate image with html2canvas
+            html2canvas(document.getElementById('card-preview'), {
+                backgroundColor: null,
+                scale: 2
+            }).then(canvas => {
+                cardCanvas.src = canvas.toDataURL('image/png');
+                downloadBtn.style.display = 'block';
+                downloadBtn.onclick = () => {
+                    const link = document.createElement('a');
+                    link.href = cardCanvas.src;
+                    link.download = 'virtual_card.png';
+                    link.click();
+                };
+            });
+        });
+    </script>
+</body>
+</html>
