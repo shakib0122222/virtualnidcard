@@ -30,13 +30,20 @@
         .container:hover {
             transform: translateY(-5px);
         }
+        .header-box {
+            background: linear-gradient(135deg, #003087, #005bb5);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
         h1 {
-            color: #003087;
-            font-size: 24px;
-            margin-bottom: 10px;
+            color: #ffffff;
+            font-size: 28px;
+            margin: 0;
         }
         .note {
-            font-size: 12px;
+            font-size: 14px;
             color: #555;
             margin-bottom: 20px;
             font-family: 'Kalpurush', Arial, sans-serif;
@@ -57,7 +64,7 @@
             text-align: left;
         }
         label {
-            font-size: 14px;
+            font-size: 16px;
             color: #003087;
             display: block;
             margin-bottom: 5px;
@@ -69,7 +76,7 @@
             border-radius: 8px;
             background-color: #f0f4f8;
             color: #333;
-            font-size: 14px;
+            font-size: 16px;
             font-family: 'Kalpurush', Arial, sans-serif;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
@@ -85,7 +92,7 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
             font-family: 'Kalpurush', Arial, sans-serif;
             transition: background 0.3s ease, transform 0.3s ease;
             width: 100%;
@@ -119,46 +126,46 @@
             font-family: 'Kalpurush', Arial, sans-serif;
         }
         #name-bn-text {
-            top: 100px;
-            left: 300px;
+            top: 80px;
+            left: 150px;
             font-size: 18px;
             font-weight: bold;
-            width: 300px;
+            width: 400px;
         }
         #name-en-text {
-            top: 125px;
-            left: 300px;
-            font-size: 16px;
-            width: 300px;
+            top: 110px;
+            left: 150px;
+            font-size: 18px;
+            width: 400px;
         }
         #father-text {
-            top: 150px;
-            left: 300px;
-            font-size: 16px;
-            width: 300px;
+            top: 140px;
+            left: 150px;
+            font-size: 18px;
+            width: 400px;
         }
         #mother-text {
-            top: 175px;
-            left: 300px;
-            font-size: 16px;
-            width: 300px;
+            top: 170px;
+            left: 150px;
+            font-size: 18px;
+            width: 400px;
         }
         #nid-text {
-            top: 200px;
-            left: 300px;
-            font-size: 16px;
-            width: 300px;
+            top: 230px;
+            left: 150px;
+            font-size: 18px;
+            width: 400px;
         }
         #dob-text {
-            top: 225px;
-            left: 300px;
-            font-size: 16px;
+            top: 200px;
+            left: 150px;
+            font-size: 18px;
             font-weight: bold;
-            width: 300px;
+            width: 400px;
         }
         footer {
             margin-top: 20px;
-            font-size: 12px;
+            font-size: 14px;
             color: #555;
             font-family: 'Kalpurush', Arial, sans-serif;
         }
@@ -175,11 +182,14 @@
                 padding: 15px;
                 max-width: 100%;
             }
+            .header-box {
+                padding: 10px;
+            }
             h1 {
-                font-size: 20px;
+                font-size: 24px;
             }
             .note {
-                font-size: 10px;
+                font-size: 12px;
             }
             .form-box {
                 padding: 10px;
@@ -188,14 +198,14 @@
                 margin-bottom: 10px;
             }
             label {
-                font-size: 12px;
+                font-size: 14px;
             }
             input {
-                font-size: 12px;
+                font-size: 14px;
                 padding: 8px;
             }
             button {
-                font-size: 12px;
+                font-size: 14px;
                 padding: 8px 12px;
             }
             #card-preview {
@@ -205,26 +215,43 @@
                 left: 50%;
                 transform: translateX(-50%);
                 width: 90%;
-                font-size: 12px;
-            }
-            #name-bn-text {
                 font-size: 14px;
             }
-            #name-en-text, #father-text, #mother-text, #nid-text, #dob-text {
+            #name-bn-text {
+                top: 80px;
+                font-size: 16px;
+            }
+            #name-en-text {
+                top: 100px;
+                font-size: 14px;
+            }
+            #father-text {
+                top: 120px;
+                font-size: 14px;
+            }
+            #mother-text {
+                top: 140px;
+                font-size: 14px;
+            }
+            #dob-text {
+                top: 160px;
+                font-size: 14px;
+            }
+            #nid-text {
+                top: 180px;
+                font-size: 14px;
+            }
+            footer {
                 font-size: 12px;
             }
-            #name-bn-text { top: 60px; }
-            #name-en-text { top: 80px; }
-            #father-text { top: 100px; }
-            #mother-text { top: 120px; }
-            #dob-text { top: 140px; }
-            #nid-text { top: 160px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
+        <div class="header-box">
+            <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
+        </div>
         <p class="note">This card is for preview purposes only</p>
         <div class="form-box">
             <form id="card-form">
@@ -279,6 +306,22 @@
         const motherText = document.getElementById('mother-text');
         const nidText = document.getElementById('nid-text');
         const dobText = document.getElementById('dob-text');
+        const headerBox = document.querySelector('.header-box');
+
+        // Random color generator for header box
+        function getRandomColor() {
+            const colors = [
+                'linear-gradient(135deg, #003087, #005bb5)',
+                'linear-gradient(135deg, #4CAF50, #2E7D32)',
+                'linear-gradient(135deg, #F44336, #D32F2F)',
+                'linear-gradient(135deg, #FF9800, #EF6C00)',
+                'linear-gradient(135deg, #9C27B0, #7B1FA2)'
+            ];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Set random color on load
+        headerBox.style.background = getRandomColor();
 
         // Random 10-digit NID-like number generator
         function generateRandomNID() {
@@ -292,7 +335,7 @@
             const fatherName = document.getElementById('father-name').value;
             const motherName = document.getElementById('mother-name').value;
             const dob = document.getElementById('dob').value;
-            const nidNo = generateRandomNID(); // Generate random NID
+            const nidNo = generateRandomNID();
 
             // Update text on the card
             nameBnText.textContent = nameBn;
@@ -304,6 +347,9 @@
 
             // Show the card preview
             cardPreview.style.display = 'block';
+
+            // Change header color on each submit
+            headerBox.style.background = getRandomColor();
 
             // Ensure image is loaded before capturing
             if (cardCanvas.complete) {
@@ -320,7 +366,7 @@
                 useCORS: true
             }).then(canvas => {
                 cardCanvas.src = canvas.toDataURL('image/png');
-                textContainer.style.display = 'none'; // Hide text after capture
+                textContainer.style.display = 'none';
                 downloadBtn.style.display = 'block';
                 downloadBtn.onclick = () => {
                     const link = document.createElement('a');
@@ -332,4 +378,4 @@
         }
     </script>
 </body>
-</html>
+                        </html>
