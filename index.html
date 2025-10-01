@@ -126,54 +126,54 @@
             color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
         }
+        /* Updated text positions for the red box */
         #name-bn-text {
-            top: 80px;
-            left: 200px;
-            font-size: 20px;
-            font-weight: bold;
-            width: 400px;
-        }
-        #name-en-text {
-            top: 110px;
-            left: 200px;
+            top: 95px;
+            left: 240px;
             font-size: 18px;
             font-weight: bold;
+            width: 350px;
+        }
+        #name-en-text {
+            top: 120px;
+            left: 240px;
+            font-size: 15px;
             font-family: Arial;
-            width: 400px;
+            width: 350px;
         }
         #father-text {
             top: 140px;
-            left: 200px;
-            font-size: 18px;
-            width: 400px;
+            left: 240px;
+            font-size: 15px;
+            width: 350px;
         }
         #mother-text {
-            top: 170px;
-            left: 200px;
-            font-size: 18px;
-            width: 400px;
+            top: 160px;
+            left: 240px;
+            font-size: 15px;
+            width: 350px;
         }
         #dob-text {
-            top: 200px;
-            left: 200px;
-            font-size: 18px;
-            font-weight: bold;
-            color: red;
-            width: 400px;
+            top: 180px;
+            left: 240px;
+            font-size: 15px;
+            width: 350px;
         }
         #id-text {
-            top: 230px;
-            left: 200px;
+            top: 215px;
+            left: 240px;
             font-size: 18px;
             font-weight: bold;
             color: red;
-            width: 400px;
+            width: 350px;
         }
+        /* Updated signature position for the blue box */
         #signature-text {
-            top: 150px;
-            left: 50px;
-            font-size: 18px;
-            width: 100px;
+            top: 245px;
+            left: 45px;
+            font-size: 16px;
+            width: 150px;
+            text-align: center;
         }
         footer {
             margin-top: 20px;
@@ -224,42 +224,47 @@
                 padding: 5px;
                 max-width: 100%;
             }
+             /* Updated Responsive Styles */
             .card-text {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 90%;
-                font-size: 14px;
+                transform: none;
+                width: auto;
             }
             #name-bn-text {
-                top: 80px;
-                font-size: 16px;
+                top: 18%;
+                left: 48%;
+                font-size: 14px;
             }
             #name-en-text {
-                top: 100px;
-                font-size: 14px;
+                top: 23%;
+                left: 48%;
+                font-size: 11px;
             }
             #father-text {
-                top: 120px;
-                font-size: 14px;
+                top: 27%;
+                left: 48%;
+                font-size: 11px;
             }
             #mother-text {
-                top: 140px;
-                font-size: 14px;
+                top: 31%;
+                left: 48%;
+                font-size: 11px;
             }
             #dob-text {
-                top: 160px;
-                font-size: 14px;
+                top: 35%;
+                left: 48%;
+                font-size: 11px;
             }
             #id-text {
-                top: 180px;
+                top: 42%;
+                left: 48%;
                 font-size: 14px;
             }
             #signature-text {
-                top: 50px;
+                top: 48%;
+                left: 9%;
+                width: 30%;
                 font-size: 12px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 80px;
+                text-align: center;
             }
             footer {
                 font-size: 12px;
@@ -368,13 +373,13 @@
             nameEn = nameEn.toUpperCase();
 
             // Update text on the card with labels
-            nameBnText.textContent = ` ${nameBn}`;
-            nameEnText.textContent = ` ${nameEn}`;
-            fatherText.textContent = ` ${fatherName}`;
-            motherText.textContent = ` ${motherName}`;
-            dobText.textContent = ` ${dob}`;
-            idText.textContent = ` ${idNo}`;
-            signatureText.textContent = ` ${signature}`;
+            nameBnText.textContent = `নাম: ${nameBn}`;
+            nameEnText.textContent = `Name: ${nameEn}`;
+            fatherText.textContent = `পিতার নাম: ${fatherName}`;
+            motherText.textContent = `মাতার নাম: ${motherName}`;
+            dobText.textContent = `Date of Birth: ${dob}`;
+            idText.textContent = `ID NO: ${idNo}`;
+            signatureText.textContent = `${signature}`;
 
             // Show the card preview
             cardPreview.style.display = 'block';
@@ -409,4 +414,4 @@
         }
     </script>
 </body>
-</html>
+                    </html>
