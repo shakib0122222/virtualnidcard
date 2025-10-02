@@ -31,7 +31,9 @@
             text-align: center;
             transition: transform 0.3s ease;
         }
-        .container:hover { transform: translateY(-5px); }
+        .container:hover {
+            transform: translateY(-5px);
+        }
         .header-box {
             background: linear-gradient(135deg, #003087, #005bb5);
             padding: 15px;
@@ -39,9 +41,17 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
-        h1 { color: #ffffff; font-size: 28px; margin: 0; }
-        .note { font-size: 14px; color: #555; margin-bottom: 20px; }
-
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin: 0;
+        }
+        .note {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
         .form-box {
             background: linear-gradient(135deg, #e6f0ff, #ffffff);
             padding: 15px;
@@ -50,29 +60,72 @@
             margin-bottom: 20px;
             transition: box-shadow 0.3s ease;
         }
-        .form-box:hover { box-shadow: 0 6px 20px rgba(0, 91, 181, 0.2); }
-        .form-group { margin-bottom: 15px; text-align: left; }
-        label { font-size: 16px; color: #003087; display: block; margin-bottom: 5px; }
+        .form-box:hover {
+            box-shadow: 0 6px 20px rgba(0, 91, 181, 0.2);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        label {
+            font-size: 16px;
+            color: #003087;
+            display: block;
+            margin-bottom: 5px;
+        }
         input {
-            width: 100%; padding: 10px; border: 2px solid #003087;
-            border-radius: 8px; background-color: #f0f4f8; color: #333;
-            font-size: 16px; font-family: 'Kalpurush', Arial, sans-serif;
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #003087;
+            border-radius: 8px;
+            background-color: #f0f4f8;
+            color: #333;
+            font-size: 16px;
+            font-family: 'Kalpurush', Arial, sans-serif;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #005bb5;
+            box-shadow: 0 0 8px rgba(0, 91, 181, 0.3);
         }
         button {
             background: linear-gradient(135deg, #003087, #005bb5);
-            color: white; padding: 10px 15px; border: none; border-radius: 8px;
-            cursor: pointer; font-size: 16px; width: 100%; margin-top: 10px;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Kalpurush', Arial, sans-serif;
+            transition: background 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
         }
-
+        button:hover {
+            background: linear-gradient(135deg, #005bb5, #003087);
+            transform: translateY(-2px);
+        }
         #card-preview {
-            display: none; margin-top: 20px; position: relative;
-            width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto;
-            border: 2px solid #003087; border-radius: 10px; padding: 5px;
-            background-color: #f0f4f8; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid #003087;
+            border-radius: 10px;
+            padding: 5px;
+            background-color: #f0f4f8;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         #card-canvas {
-            max-width: 100%; height: auto; border-radius: 10px;
-            width: 1280px; height: 883px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            width: 1280px;
+            height: 883px;
         }
         .card-text-container {
             position: relative;
@@ -81,52 +134,52 @@
         }
         .card-text {
             position: absolute;
+            color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
-            color: #000;
             word-wrap: break-word;
         }
 
-        /* ===== রিয়েল NID কার্ড স্টাইল ===== */
+        /* আপডেট করা পজিশন (Funny Card এর মতো) */
         #name-bn-text {
-            top: 150px;
-            left: 190px;
-            font-size: 32px;
+            top: 120px;
+            left: 420px;
+            font-size: 26px;
             font-weight: bold;
             color: #000;
         }
         #name-en-text {
-            top: 190px;
-            left: 190px;
-            font-size: 24px;
+            top: 160px;
+            left: 420px;
+            font-size: 22px;
             font-weight: bold;
             font-family: Arial, sans-serif;
             color: #000;
         }
         #father-text {
-            top: 240px;
-            left: 190px;
+            top: 200px;
+            left: 420px;
             font-size: 22px;
             color: #000;
         }
         #mother-text {
-            top: 290px;
-            left: 190px;
+            top: 240px;
+            left: 420px;
             font-size: 22px;
             color: #000;
         }
         #dob-text {
-            top: 345px;
-            left: 190px;
+            top: 300px;
+            left: 420px;
             font-size: 22px;
             font-weight: bold;
-            color: red;
+            color: #000;
         }
         #id-text {
-            top: 405px;
-            left: 190px;
-            font-size: 24px;
+            top: 350px;
+            left: 420px;
+            font-size: 26px;
             font-weight: bold;
-            color: red;
+            color: #000;
         }
         #signature-text {
             bottom: 60px;
@@ -136,27 +189,58 @@
             color: #000;
             text-align: center;
         }
-        footer { margin-top: 20px; font-size: 14px; color: #555; }
-        #download-btn { display: none; background: linear-gradient(135deg, #28a745, #218838); }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555;
+            font-family: 'Kalpurush', Arial, sans-serif;
+        }
+        #download-btn {
+            display: none;
+            background: linear-gradient(135deg, #28a745, #218838);
+        }
+        #download-btn:hover {
+            background: linear-gradient(135deg, #218838, #28a745);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header-box"><h1>ভার্চুয়াল কার্ড জেনারেটর</h1></div>
+        <div class="header-box">
+            <h1>ভার্চুয়াল NID কার্ড জেনারেটর</h1>
+        </div>
         <p class="note">This card is for preview purposes only</p>
-
         <div class="form-box">
             <form id="card-form">
-                <div class="form-group"><label for="name-bn">নাম (বাংলা)</label><input type="text" id="name-bn" required></div>
-                <div class="form-group"><label for="name-en">Name (English)</label><input type="text" id="name-en" required></div>
-                <div class="form-group"><label for="father-name">পিতার নাম</label><input type="text" id="father-name" required></div>
-                <div class="form-group"><label for="mother-name">মাতার নাম</label><input type="text" id="mother-name" required></div>
-                <div class="form-group"><label for="dob">জন্মতারিখ</label><input type="date" id="dob" required></div>
-                <div class="form-group"><label for="signature">সিগনেচার</label><input type="text" id="signature" required></div>
+                <div class="form-group">
+                    <label for="name-bn">নাম (বাংলা)</label>
+                    <input type="text" id="name-bn" placeholder="আপনার নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="name-en">Name (English)</label>
+                    <input type="text" id="name-en" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="father-name">পিতার নাম</label>
+                    <input type="text" id="father-name" placeholder="পিতার নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="mother-name">মাতার নাম</label>
+                    <input type="text" id="mother-name" placeholder="মাতার নাম লিখুন" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob">জন্মতারিখ</label>
+                    <input type="date" id="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="signature">সিগনেচার</label>
+                    <input type="text" id="signature" placeholder="আপনার সিগনেচার লিখুন" required>
+                </div>
                 <button type="submit">ক্রিয়েট কার্ড</button>
             </form>
         </div>
-
         <div id="card-preview">
             <div class="card-text-container">
                 <div id="name-bn-text" class="card-text"></div>
@@ -199,6 +283,7 @@
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
+
         headerBox.style.background = getRandomColor();
 
         function generateRandomID() {
@@ -219,9 +304,9 @@
 
             nameBnText.textContent = `নাম: ${nameBn}`;
             nameEnText.textContent = `Name: ${nameEn}`;
-            fatherText.textContent = `পিতার নাম: ${fatherName}`;
-            motherText.textContent = `মাতার নাম: ${motherName}`;
-            dobText.textContent = `জন্মতারিখ: ${dob}`;
+            fatherText.textContent = `পিতা: ${fatherName}`;
+            motherText.textContent = `মাতা: ${motherName}`;
+            dobText.textContent = `Date of Birth: ${dob}`;
             idText.textContent = `ID NO: ${idNo}`;
             signatureText.textContent = `সিগনেচার: ${signature}`;
 
