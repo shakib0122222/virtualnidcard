@@ -6,6 +6,11 @@
     <title>ভার্চুয়াল কার্ড জেনারেটর</title>
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: 'Kalpurush', Arial, sans-serif;
             background: linear-gradient(135deg, #e6f0ff, #f0f4f8);
@@ -14,7 +19,6 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             overflow: auto;
         }
         .container {
@@ -120,62 +124,68 @@
             max-width: 100%;
             height: auto;
             border-radius: 10px;
+            width: 600px; /* টেমপ্লেটের ধরা আকার */
+            height: 400px; /* টেমপ্লেটের ধরা আকার */
+        }
+        .card-text-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
         }
         .card-text {
             position: absolute;
             color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
+            word-wrap: break-word;
         }
         #name-bn-text {
-            top: 80px;
-            left: 200px;
-            font-size: 20px;
+            top: 13.33vw; /* 80px for 600px width */
+            left: 33.33vw; /* 200px for 600px width */
+            font-size: 3.33vw; /* 20px for 600px width */
             font-weight: bold;
-            width: 400px;
+            width: 66.66vw; /* 400px for 600px width */
         }
         #name-en-text {
-            top: 110px;
-            left: 200px;
-            font-size: 18px;
+            top: 18.33vw; /* 110px for 600px width */
+            left: 33.33vw; /* 200px for 600px width */
+            font-size: 3vw; /* 18px for 600px width */
             font-weight: bold;
             font-family: Arial, sans-serif;
-            width: 400px;
+            width: 66.66vw; /* 400px for 600px width */
         }
         #father-text {
-            top: 140px;
-            left: 200px;
-            font-size: 18px;
-            width: 400px;
+            top: 23.33vw; /* 140px for 600px width */
+            left: 33.33vw; /* 200px for 600px width */
+            font-size: 3vw; /* 18px for 600px width */
+            width: 66.66vw; /* 400px for 600px width */
         }
         #mother-text {
-            top: 170px;
-            left: 200px;
-            font-size: 18px;
-            width: 400px;
+            top: 28.33vw; /* 170px for 600px width */
+            left: 33.33vw; /* 200px for 600px width */
+            font-size: 3vw; /* 18px for 600px width */
+            width: 66.66vw; /* 400px for 600px width */
         }
         #dob-text {
-            top: 200px;
-            left: 200px;
-            font-size: 20px;
+            top: 33.33vw; /* 200px for 600px width */
+            left: 33.33vw; /* 200px for 600px width */
+            font-size: 3vw; /* 18px for 600px width */
             font-weight: bold;
             color: red;
-            font-family: Arial, sans-serif;
-            width: 400px;
+            width: 66.66vw; /* 400px for 600px width */
         }
         #id-text {
-            top: 230px;
-            left: 200px;
-            font-size: 22px;
+            top: 38.33vw; /* 230px for 600px width */
+            left: 33.33vw; /* 200px for 600px width */
+            font-size: 3vw; /* 18px for 600px width */
             font-weight: bold;
             color: red;
-            width: 400px;
+            width: 66.66vw; /* 400px for 600px width */
         }
         #signature-text {
-            top: 260px; /* ছবির নিচে */
-            left: 60px;
-            font-size: 16px;
-            font-family: "Brush Script MT", cursive;
-            width: 150px;
+            top: 25vw; /* 150px for 600px width */
+            left: 8.33vw; /* 50px for 600px width */
+            font-size: 3vw; /* 18px for 600px width */
+            width: 16.66vw; /* 100px for 600px width */
         }
         footer {
             margin-top: 20px;
@@ -191,12 +201,94 @@
             background: linear-gradient(135deg, #218838, #28a745);
             transform: translateY(-2px);
         }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+            .header-box {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .note {
+                font-size: 12px;
+            }
+            .form-box {
+                padding: 10px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            label {
+                font-size: 14px;
+            }
+            input {
+                font-size: 14px;
+                padding: 8px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            #card-preview {
+                padding: 5px;
+                max-width: 100%;
+            }
+            #card-canvas {
+                width: 100%;
+                height: auto;
+            }
+            .card-text-container {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .card-text {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90vw;
+            }
+            #name-bn-text {
+                top: 13.33vw;
+                font-size: 5vw;
+            }
+            #name-en-text {
+                top: 18.33vw;
+                font-size: 4.5vw;
+            }
+            #father-text {
+                top: 23.33vw;
+                font-size: 4.5vw;
+            }
+            #mother-text {
+                top: 28.33vw;
+                font-size: 4.5vw;
+            }
+            #dob-text {
+                top: 33.33vw;
+                font-size: 4.5vw;
+            }
+            #id-text {
+                top: 38.33vw;
+                font-size: 4.5vw;
+            }
+            #signature-text {
+                top: 25vw;
+                font-size: 4vw;
+                width: 30vw;
+            }
+            footer {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header-box">
-            <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
+            <h1>ভার্চুয়াল NID কার্ড জেনারেটর</h1>
         </div>
         <p class="note">This card is for preview purposes only</p>
         <div class="form-box">
@@ -229,7 +321,7 @@
             </form>
         </div>
         <div id="card-preview">
-            <div id="card-text-container">
+            <div class="card-text-container">
                 <div id="name-bn-text" class="card-text"></div>
                 <div id="name-en-text" class="card-text"></div>
                 <div id="father-text" class="card-text"></div>
@@ -250,7 +342,7 @@
         const cardPreview = document.getElementById('card-preview');
         const cardCanvas = document.getElementById('card-canvas');
         const downloadBtn = document.getElementById('download-btn');
-        const textContainer = document.getElementById('card-text-container');
+        const textContainer = document.querySelector('.card-text-container');
         const nameBnText = document.getElementById('name-bn-text');
         const nameEnText = document.getElementById('name-en-text');
         const fatherText = document.getElementById('father-text');
@@ -260,6 +352,7 @@
         const signatureText = document.getElementById('signature-text');
         const headerBox = document.querySelector('.header-box');
 
+        // Random color generator for header box
         function getRandomColor() {
             const colors = [
                 'linear-gradient(135deg, #003087, #005bb5)',
@@ -271,8 +364,10 @@
             return colors[Math.floor(Math.random() * colors.length)];
         }
 
+        // Set random color on load
         headerBox.style.background = getRandomColor();
 
+        // Random 10-digit ID-like number generator
         function generateRandomID() {
             return Math.floor(1000000000 + Math.random() * 9000000000).toString();
         }
@@ -287,19 +382,25 @@
             const idNo = generateRandomID();
             const signature = document.getElementById('signature').value;
 
+            // Convert English name to uppercase
             nameEn = nameEn.toUpperCase();
 
+            // Update text on the card with labels
             nameBnText.textContent = `নাম: ${nameBn}`;
             nameEnText.textContent = `Name: ${nameEn}`;
             fatherText.textContent = `পিতার নাম: ${fatherName}`;
             motherText.textContent = `মাতার নাম: ${motherName}`;
             dobText.textContent = `জন্মতারিখ: ${dob}`;
             idText.textContent = `ID NO: ${idNo}`;
-            signatureText.textContent = signature;
+            signatureText.textContent = `সিগনেচার: ${signature}`;
 
+            // Show the card preview
             cardPreview.style.display = 'block';
+
+            // Change header color on each submit
             headerBox.style.background = getRandomColor();
 
+            // Ensure image is loaded before capturing
             if (cardCanvas.complete) {
                 captureCard();
             } else {
