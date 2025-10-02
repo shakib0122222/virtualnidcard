@@ -31,9 +31,7 @@
             text-align: center;
             transition: transform 0.3s ease;
         }
-        .container:hover {
-            transform: translateY(-5px);
-        }
+        .container:hover { transform: translateY(-5px); }
         .header-box {
             background: linear-gradient(135deg, #003087, #005bb5);
             padding: 15px;
@@ -41,17 +39,9 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
         }
-        h1 {
-            color: #ffffff;
-            font-size: 28px;
-            margin: 0;
-        }
-        .note {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 20px;
-            font-family: 'Kalpurush', Arial, sans-serif;
-        }
+        h1 { color: #ffffff; font-size: 28px; margin: 0; }
+        .note { font-size: 14px; color: #555; margin-bottom: 20px; }
+
         .form-box {
             background: linear-gradient(135deg, #e6f0ff, #ffffff);
             padding: 15px;
@@ -60,72 +50,29 @@
             margin-bottom: 20px;
             transition: box-shadow 0.3s ease;
         }
-        .form-box:hover {
-            box-shadow: 0 6px 20px rgba(0, 91, 181, 0.2);
-        }
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        label {
-            font-size: 16px;
-            color: #003087;
-            display: block;
-            margin-bottom: 5px;
-        }
+        .form-box:hover { box-shadow: 0 6px 20px rgba(0, 91, 181, 0.2); }
+        .form-group { margin-bottom: 15px; text-align: left; }
+        label { font-size: 16px; color: #003087; display: block; margin-bottom: 5px; }
         input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #003087;
-            border-radius: 8px;
-            background-color: #f0f4f8;
-            color: #333;
-            font-size: 16px;
-            font-family: 'Kalpurush', Arial, sans-serif;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        input:focus {
-            outline: none;
-            border-color: #005bb5;
-            box-shadow: 0 0 8px rgba(0, 91, 181, 0.3);
+            width: 100%; padding: 10px; border: 2px solid #003087;
+            border-radius: 8px; background-color: #f0f4f8; color: #333;
+            font-size: 16px; font-family: 'Kalpurush', Arial, sans-serif;
         }
         button {
             background: linear-gradient(135deg, #003087, #005bb5);
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            font-family: 'Kalpurush', Arial, sans-serif;
-            transition: background 0.3s ease, transform 0.3s ease;
-            width: 100%;
-            margin-top: 10px;
+            color: white; padding: 10px 15px; border: none; border-radius: 8px;
+            cursor: pointer; font-size: 16px; width: 100%; margin-top: 10px;
         }
-        button:hover {
-            background: linear-gradient(135deg, #005bb5, #003087);
-            transform: translateY(-2px);
-        }
+
         #card-preview {
-            display: none;
-            margin-top: 20px;
-            position: relative;
-            width: 100%;
-            max-width: 1280px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 2px solid #003087;
-            border-radius: 10px;
-            padding: 5px;
-            background-color: #f0f4f8;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: none; margin-top: 20px; position: relative;
+            width: 100%; max-width: 1280px; margin-left: auto; margin-right: auto;
+            border: 2px solid #003087; border-radius: 10px; padding: 5px;
+            background-color: #f0f4f8; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         #card-canvas {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            width: 1280px;
-            height: 883px;
+            max-width: 100%; height: auto; border-radius: 10px;
+            width: 1280px; height: 883px;
         }
         .card-text-container {
             position: relative;
@@ -134,193 +81,82 @@
         }
         .card-text {
             position: absolute;
-            color: #000000;
             font-family: 'Kalpurush', Arial, sans-serif;
+            color: #000;
             word-wrap: break-word;
         }
+
+        /* ===== রিয়েল NID কার্ড স্টাইল ===== */
         #name-bn-text {
-            top: 16.99vh; /* 150px for 883px height */
-            left: 15.63vw; /* 200px for 1280px width */
-            font-size: 1.56vw; /* 20px for 1280px width */
+            top: 150px;
+            left: 190px;
+            font-size: 32px;
             font-weight: bold;
-            width: 71.88vw; /* 920px (1280 - 200 - 160) for 1280px width */
+            color: #000;
         }
         #name-en-text {
-            top: 20.99vh; /* 150px + 40px = 190px for 883px height */
-            left: 15.63vw; /* 200px for 1280px width */
-            font-size: 1.41vw; /* 18px for 1280px width */
+            top: 190px;
+            left: 190px;
+            font-size: 24px;
             font-weight: bold;
             font-family: Arial, sans-serif;
-            width: 71.88vw; /* 920px for 1280px width */
+            color: #000;
         }
         #father-text {
-            top: 27.07vh; /* 190px + 50px = 240px for 883px height */
-            left: 15.63vw; /* 200px for 1280px width */
-            font-size: 1.41vw; /* 18px for 1280px width */
-            width: 71.88vw; /* 920px for 1280px width */
+            top: 240px;
+            left: 190px;
+            font-size: 22px;
+            color: #000;
         }
         #mother-text {
-            top: 33.18vh; /* 240px + 50px = 290px for 883px height */
-            left: 15.63vw; /* 200px for 1280px width */
-            font-size: 1.41vw; /* 18px for 1280px width */
-            width: 71.88vw; /* 920px for 1280px width */
+            top: 290px;
+            left: 190px;
+            font-size: 22px;
+            color: #000;
         }
         #dob-text {
-            top: 40.65vh; /* 290px + 55px = 345px for 883px height */
-            left: 15.63vw; /* 200px for 1280px width */
-            font-size: 1.41vw; /* 18px for 1280px width */
+            top: 345px;
+            left: 190px;
+            font-size: 22px;
             font-weight: bold;
             color: red;
-            width: 71.88vw; /* 920px for 1280px width */
         }
         #id-text {
-            top: 49.15vh; /* 345px + 60px = 405px for 883px height */
-            left: 15.63vw; /* 200px for 1280px width */
-            font-size: 1.41vw; /* 18px for 1280px width */
+            top: 405px;
+            left: 190px;
+            font-size: 24px;
             font-weight: bold;
             color: red;
-            width: 71.88vw; /* 920px for 1280px width */
         }
         #signature-text {
-            top: 93.20vh; /* 883px - 60px = 823px for 883px height */
-            right: 10.94vw; /* 140px for 1280px width */
-            font-size: 1.41vw; /* 18px for 1280px width */
-            width: 10.94vw; /* 140px for 1280px width */
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #555;
+            bottom: 60px;
+            right: 150px;
+            font-size: 18px;
             font-family: 'Kalpurush', Arial, sans-serif;
+            color: #000;
+            text-align: center;
         }
-        #download-btn {
-            display: none;
-            background: linear-gradient(135deg, #28a745, #218838);
-        }
-        #download-btn:hover {
-            background: linear-gradient(135deg, #218838, #28a745);
-            transform: translateY(-2px);
-        }
-        @media (max-width: 1280px) {
-            .container {
-                padding: 15px;
-                max-width: 100%;
-            }
-            .header-box {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            .note {
-                font-size: 12px;
-            }
-            .form-box {
-                padding: 10px;
-            }
-            .form-group {
-                margin-bottom: 10px;
-            }
-            label {
-                font-size: 14px;
-            }
-            input {
-                font-size: 14px;
-                padding: 8px;
-            }
-            button {
-                font-size: 14px;
-                padding: 8px 12px;
-            }
-            #card-preview {
-                padding: 5px;
-                max-width: 100%;
-            }
-            #card-canvas {
-                width: 100%;
-                height: auto;
-            }
-            .card-text-container {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .card-text {
-                left: 50%;
-                transform: translateX(-50%);
-                width: 75vw;
-            }
-            #name-bn-text {
-                top: 16.99vh;
-                font-size: 2.5vw;
-            }
-            #name-en-text {
-                top: 20.99vh;
-                font-size: 2.2vw;
-            }
-            #father-text {
-                top: 27.07vh;
-                font-size: 2.2vw;
-            }
-            #mother-text {
-                top: 33.18vh;
-                font-size: 2.2vw;
-            }
-            #dob-text {
-                top: 40.65vh;
-                font-size: 2.2vw;
-            }
-            #id-text {
-                top: 49.15vh;
-                font-size: 2.2vw;
-            }
-            #signature-text {
-                top: 93.20vh;
-                right: 10.94vw;
-                font-size: 2vw;
-                width: 15vw;
-            }
-            footer {
-                font-size: 12px;
-            }
-        }
+        footer { margin-top: 20px; font-size: 14px; color: #555; }
+        #download-btn { display: none; background: linear-gradient(135deg, #28a745, #218838); }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header-box">
-            <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
-        </div>
+        <div class="header-box"><h1>ভার্চুয়াল কার্ড জেনারেটর</h1></div>
         <p class="note">This card is for preview purposes only</p>
+
         <div class="form-box">
             <form id="card-form">
-                <div class="form-group">
-                    <label for="name-bn">নাম (বাংলা)</label>
-                    <input type="text" id="name-bn" placeholder="আপনার নাম লিখুন" required>
-                </div>
-                <div class="form-group">
-                    <label for="name-en">Name (English)</label>
-                    <input type="text" id="name-en" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="father-name">পিতার নাম</label>
-                    <input type="text" id="father-name" placeholder="পিতার নাম লিখুন" required>
-                </div>
-                <div class="form-group">
-                    <label for="mother-name">মাতার নাম</label>
-                    <input type="text" id="mother-name" placeholder="মাতার নাম লিখুন" required>
-                </div>
-                <div class="form-group">
-                    <label for="dob">জন্মতারিখ</label>
-                    <input type="date" id="dob" required>
-                </div>
-                <div class="form-group">
-                    <label for="signature">সিগনেচার</label>
-                    <input type="text" id="signature" placeholder="আপনার সিগনেচার লিখুন" required>
-                </div>
+                <div class="form-group"><label for="name-bn">নাম (বাংলা)</label><input type="text" id="name-bn" required></div>
+                <div class="form-group"><label for="name-en">Name (English)</label><input type="text" id="name-en" required></div>
+                <div class="form-group"><label for="father-name">পিতার নাম</label><input type="text" id="father-name" required></div>
+                <div class="form-group"><label for="mother-name">মাতার নাম</label><input type="text" id="mother-name" required></div>
+                <div class="form-group"><label for="dob">জন্মতারিখ</label><input type="date" id="dob" required></div>
+                <div class="form-group"><label for="signature">সিগনেচার</label><input type="text" id="signature" required></div>
                 <button type="submit">ক্রিয়েট কার্ড</button>
             </form>
         </div>
+
         <div id="card-preview">
             <div class="card-text-container">
                 <div id="name-bn-text" class="card-text"></div>
@@ -363,7 +199,6 @@
             ];
             return colors[Math.floor(Math.random() * colors.length)];
         }
-
         headerBox.style.background = getRandomColor();
 
         function generateRandomID() {
