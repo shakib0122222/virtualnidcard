@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-15">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ভার্চুয়াল কার্ড জেনারেটর</title>
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
@@ -110,8 +110,8 @@
             display: none;
             margin-top: 20px;
             position: relative;
-            width: 1280px;
-            height: 883px;
+            width: 100%;
+            max-width: 1280px;
             margin-left: auto;
             margin-right: auto;
             border: 2px solid #003087;
@@ -128,9 +128,7 @@
             height: 883px;
         }
         .card-text-container {
-            position: absolute;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 1280px;
             height: 883px;
         }
@@ -140,61 +138,54 @@
             font-family: 'Kalpurush', Arial, sans-serif;
             word-wrap: break-word;
         }
-        /* বাংলা নাম */
         #name-bn-text {
-            top: 70px;
-            left: 400px;
-            font-size: 30px;
+            top: 16.99vh; /* 150px for 883px height */
+            left: 15.63vw; /* 200px for 1280px width */
+            font-size: 1.56vw; /* 20px for 1280px width */
             font-weight: bold;
-            width: 500px;
+            width: 71.88vw; /* 920px (1280 - 200 - 160) for 1280px width */
         }
-        /* English Name */
         #name-en-text {
-            top: 110px;
-            left: 400px;
-            font-size: 22px;
+            top: 20.99vh; /* 150px + 40px = 190px for 883px height */
+            left: 15.63vw; /* 200px for 1280px width */
+            font-size: 1.41vw; /* 18px for 1280px width */
             font-weight: bold;
             font-family: Arial, sans-serif;
-            width: 500px;
+            width: 71.88vw; /* 920px for 1280px width */
         }
-        /* পিতার নাম */
         #father-text {
-            top: 160px;
-            left: 400px;
-            font-size: 22px;
-            width: 500px;
+            top: 27.07vh; /* 190px + 50px = 240px for 883px height */
+            left: 15.63vw; /* 200px for 1280px width */
+            font-size: 1.41vw; /* 18px for 1280px width */
+            width: 71.88vw; /* 920px for 1280px width */
         }
-        /* মাতার নাম */
         #mother-text {
-            top: 210px;
-            left: 400px;
-            font-size: 22px;
-            width: 500px;
+            top: 33.18vh; /* 240px + 50px = 290px for 883px height */
+            left: 15.63vw; /* 200px for 1280px width */
+            font-size: 1.41vw; /* 18px for 1280px width */
+            width: 71.88vw; /* 920px for 1280px width */
         }
-        /* জন্মতারিখ */
         #dob-text {
-            top: 260px;
-            left: 400px;
-            font-size: 22px;
+            top: 40.65vh; /* 290px + 55px = 345px for 883px height */
+            left: 15.63vw; /* 200px for 1280px width */
+            font-size: 1.41vw; /* 18px for 1280px width */
             font-weight: bold;
             color: red;
-            width: 500px;
+            width: 71.88vw; /* 920px for 1280px width */
         }
-        /* আইডি নম্বর */
         #id-text {
-            top: 310px;
-            left: 400px;
-            font-size: 22px;
+            top: 49.15vh; /* 345px + 60px = 405px for 883px height */
+            left: 15.63vw; /* 200px for 1280px width */
+            font-size: 1.41vw; /* 18px for 1280px width */
             font-weight: bold;
             color: red;
-            width: 500px;
+            width: 71.88vw; /* 920px for 1280px width */
         }
-        /* সিগনেচার */
         #signature-text {
-            top: 150px;
-            left: 100px;
-            font-size: 20px;
-            width: 200px;
+            top: 93.20vh; /* 883px - 60px = 823px for 883px height */
+            right: 10.94vw; /* 140px for 1280px width */
+            font-size: 1.41vw; /* 18px for 1280px width */
+            width: 10.94vw; /* 140px for 1280px width */
         }
         footer {
             margin-top: 20px;
@@ -210,12 +201,95 @@
             background: linear-gradient(135deg, #218838, #28a745);
             transform: translateY(-2px);
         }
+        @media (max-width: 1280px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+            .header-box {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .note {
+                font-size: 12px;
+            }
+            .form-box {
+                padding: 10px;
+            }
+            .form-group {
+                margin-bottom: 10px;
+            }
+            label {
+                font-size: 14px;
+            }
+            input {
+                font-size: 14px;
+                padding: 8px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
+            #card-preview {
+                padding: 5px;
+                max-width: 100%;
+            }
+            #card-canvas {
+                width: 100%;
+                height: auto;
+            }
+            .card-text-container {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .card-text {
+                left: 50%;
+                transform: translateX(-50%);
+                width: 75vw;
+            }
+            #name-bn-text {
+                top: 16.99vh;
+                font-size: 2.5vw;
+            }
+            #name-en-text {
+                top: 20.99vh;
+                font-size: 2.2vw;
+            }
+            #father-text {
+                top: 27.07vh;
+                font-size: 2.2vw;
+            }
+            #mother-text {
+                top: 33.18vh;
+                font-size: 2.2vw;
+            }
+            #dob-text {
+                top: 40.65vh;
+                font-size: 2.2vw;
+            }
+            #id-text {
+                top: 49.15vh;
+                font-size: 2.2vw;
+            }
+            #signature-text {
+                top: 93.20vh;
+                right: 10.94vw;
+                font-size: 2vw;
+                width: 15vw;
+            }
+            footer {
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header-box">
-            <h1>ভার্চুয়াল NID কার্ড জেনারেটর</h1>
+            <h1>ভার্চুয়াল কার্ড জেনারেটর</h1>
         </div>
         <p class="note">This card is for preview purposes only</p>
         <div class="form-box">
@@ -279,7 +353,6 @@
         const signatureText = document.getElementById('signature-text');
         const headerBox = document.querySelector('.header-box');
 
-        // Random color generator for header box
         function getRandomColor() {
             const colors = [
                 'linear-gradient(135deg, #003087, #005bb5)',
@@ -291,10 +364,8 @@
             return colors[Math.floor(Math.random() * colors.length)];
         }
 
-        // Set random color on load
         headerBox.style.background = getRandomColor();
 
-        // Random 10-digit ID-like number generator
         function generateRandomID() {
             return Math.floor(1000000000 + Math.random() * 9000000000).toString();
         }
@@ -309,10 +380,8 @@
             const idNo = generateRandomID();
             const signature = document.getElementById('signature').value;
 
-            // Convert English name to uppercase
             nameEn = nameEn.toUpperCase();
 
-            // Update text on the card with labels
             nameBnText.textContent = `নাম: ${nameBn}`;
             nameEnText.textContent = `Name: ${nameEn}`;
             fatherText.textContent = `পিতার নাম: ${fatherName}`;
@@ -321,13 +390,9 @@
             idText.textContent = `ID NO: ${idNo}`;
             signatureText.textContent = `সিগনেচার: ${signature}`;
 
-            // Show the card preview
             cardPreview.style.display = 'block';
-
-            // Change header color on each submit
             headerBox.style.background = getRandomColor();
 
-            // Ensure image is loaded before capturing
             if (cardCanvas.complete) {
                 captureCard();
             } else {
